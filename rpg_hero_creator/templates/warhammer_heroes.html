@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Search your characters
+{% endblock %}
+{% block content %}
+    <h3>Look through your characters:</h3>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form}}
+        <input type="submit" value="Search">
+    </form>
+    <br>
+    <strong>User characters:</strong>
+    <ul>
+    {% for hero in user_heroes%}
+        <div class="align-left">
+            <li><a href='/warhammer/hero/{{ hero.id }}'><strong> {{ hero.name }}</strong></a> - {{ hero.race.capitalize }} {{ hero.current_career.capitalize }} -----
+                <a href='/warhammer/hero/delete/{{ hero.id }}'><strong>Delete</strong></a>
+        </div>
+        {% endfor %}
+    </ul>
+    <strong>Game master characters:</strong>
+    <ul>
+    {% for hero in game_master_heroes%}
+        <div class="align-left">
+            <li><a href='/warhammer/hero/{{ hero.id }}'><strong>{{ hero.name }}</strong></a> - {{ hero.race.capitalize }} {{ hero.current_career.capitalize }}
+        </div>
+        {% endfor %}
+    </ul>
+{% endblock %}

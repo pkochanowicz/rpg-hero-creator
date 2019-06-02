@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    {{ hero.name }}
+{% endblock %}
+{% block content %}
+    <head>
+    <title>RPG Hero creator -
+    Warhammer hero creation
+</title>
+
+</head>
+<body>
+    <h3>{{ hero.name }}:</h3>
+    <form action="" method="post">
+    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-8">
+    <div class=character>
+        <table class="hero-table">
+            <th colspan="2" class=category_header>CHARACTER </th>
+            <tr><th><label for="id_name">Hero name:</label></th><td>{{ hero.name }}</td></tr>
+            <tr><th><label for="id_race">Race:</label></th><td>{{ hero.race.capitalize }}</td></tr>
+            <tr><th><label for="id_gender">Gender:</label></th><td>{{ hero.gender.capitalize }}</td></tr>
+            <tr><th><label for="id_current_career">Current career:</label></th><td>{{ hero.current_career.capitalize }}</td></tr>
+            <form action="" method="post">
+                {% csrf_token %}
+                <tr><th><label for="id_player">Player:</label></th><td><a href='/user-profile/{{ hero.user.id }}'>{{ hero.user.username }}</a></td></tr>
+                <tr><th><label for="id_game_master">Game master:</label></th><td><a href='/user-profile/{{ hero.game_master.id }}'>{{ hero.game_master.username }}</a></td></tr>
+                <tr><th><label for="id_experience">Experience:</label></th><td>{{ hero.experience }}</td></tr>
+            </form>
+        </table>
+    </div>
+    <br>
+    <div class="character-personal-details">
+        <table class="hero-table">
+            <th colspan="2" class=category_header>PERSONAL DETAILS
+            <tr><th><label for="id_previous_careers">Previous careers:</label></th><td>{{ hero.previous_careers}}</td></tr>
+            <tr><th><label for="id_age">Age:</label></th><td>{% if hero.age == None %} {% else %}{{ hero.age }}{% endif %}</td></tr>
+            <tr><th><label for="id_eye_color">Eye color:</label></th><td>{{ hero.eye_color }}</td></tr>
+            <tr><th><label for="id_hair_color">Hair color:</label></th><td>{{ hero.hair_color }}</td></tr>
+            <tr><th><label for="id_weight">Weight:</label></th><td>{% if hero.age == None %} {% else %}{{ hero.weight }}{% endif %}</td></tr>
+            <tr><th><label for="id_height">Height:</label></th><td>{% if hero.age == None %} {% else %}{{ hero.height }}{% endif %}</td></tr>
+            <tr><th><label for="id_star_sign">Star sign:</label></th><td>{{ hero.star_sign }}</td></tr>
+            <tr><th><label for="id_number_of_siblings">Number of siblings:</label></th><td>{% if hero.age == None %} {% else %}{{ hero.number_of_siblings }}{% endif %}</td></tr>
+            <tr><th><label for="id_birthplace">Birthplace:</label></th><td>{{ hero.birthplace }}</td></tr>
+            <tr><th><label for="id_distinguishing_marks">Distinguishing marks:</label></th><td>{{ hero.distinguishing_marks }}</td></tr>
+        </table>
+    </div>
+    <br>
+    <div class="character-profile-table">
+        <table class="hero-table">
+            <th colspan="9" class=category_header>CHARACTER PROFILE</th>
+            <tr>
+                <td>Main</td><td>WS</td><td>BS</td><td>S</td><td>T</td><td>Ag</td><td>Int</td><td>WP</td><td>Fel</td>
+            </tr>
+            <tr>
+                <td class="no-border">Starting</td>
+                <td>{{ hero.weapon_skill }}</td>
+                <td>{{ hero.ballistic_skill }}</td>
+                <td>{{ hero.strength }}</td>
+                <td>{{ hero.toughness }}</td>
+                <td>{{ hero.agility }}</td>
+                <td>{{ hero.intelligence }}</td>
+                <td>{{ hero.will_power }}</td>
+                <td>{{ hero.fellowship }}</td>
+            </tr>
+            <tr>
+                <td class="no-border">Advance</td><td><input type="number" disabled></td>
+                <td><input type="number" disabled></td><td><input type="number" disabled></td>
+                <td><input type="number" disabled></td><td><input type="number" disabled></td>
+                <td><input type="number" disabled></td><td><input type="number" disabled></td>
+                <td><input type="number" disabled></td>
+            </tr>
+            <tr>
+                <td class="no-border">Current</td><td><input type="number" disabled></td>
+                <td><input type="number" disabled></td><td><input type="number" disabled></td>
+                <td><input type="number" disabled></td><td><input type="number" disabled></td>
+                <td><input type="number" disabled></td><td><input type="number" disabled></td>
+                <td><input type="number" disabled></td>
+            </tr>
+            <tr>
+                <td>Secondary</td><td>A</td><td>W</td><td>SB</td><td>TB</td><td>M</td><td>Mag</td><td>IP</td><td>FP</td>
+            </tr>
+            <tr>
+                <td class="no-border">Starting</td>
+                <td>{{ hero.attacks }}</td>
+                <td>{{ hero.wounds }}</td>
+                <td>{{ hero.strength_bonus }}</td>
+                <td>{{ hero.toughness_bonus }}</td>
+                <td>{{ hero.movement }}</td>
+                <td>{{ hero.magic }}</td>
+                <td>{{ hero.insanity_points }}</td>
+                <td>{{ hero.fate_points }}</td>
+            </tr>
+            </tr>
+            <tr>
+                <td class="no-border">Advance</td><td><input type="number" disabled></td>
+                <td><input type="number" disabled></td><td><input type="number" disabled></td>
+                <td><input type="number" disabled></td><td><input type="number" disabled></td>
+                <td><input type="number" disabled></td><td><input type="number" disabled></td>
+                <td><input type="number" disabled></td>
+            </tr>
+            <tr>
+                <td class="no-border">Current</td><td><input type="number" disabled></td>
+                <td><input type="number" disabled></td><td><input type="number" disabled></td>
+                <td><input type="number" disabled></td><td><input type="number" disabled></td>
+                <td><input type="number" disabled></td><td><input type="number" disabled></td>
+                <td><input type="number" disabled></td>
+            </tr>
+        </table>
+        <br>
+    </div>
+    </div>
+        <div class="character-picture col-lg-3 col-md-3 col-sm-3 col-xs-8 col-lg-offset-4 col-md-offset-4 col-sm-offset-5">
+            <div class="right-side">
+                <img src="{{ hero.portrait.url }}" alt="Hero Portrait" id="id_portrait" name="id_portrait">
+            </div>
+        </div>
+
+    </form>
+    <link rel="stylesheet" type="text/css" href="/static/css/warhammer.css" />
+{% endblock %}

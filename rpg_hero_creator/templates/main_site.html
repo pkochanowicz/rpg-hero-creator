@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Main site
+{% endblock %}
+{% block content %}
+    <h3>Welcome {% if request.user.is_superuser %}
+                    {{ user.username }}
+                    <a href='/warhammer/add-news/'><strong>Add news</strong></a>
+                {% endif %}</h3>
+
+    <br>
+    {% for article in news%}
+        <div class="news col-lg-10 col-md-10 col-sm-10 col-xs-12 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">
+            <div class="news-text align-left col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                <h3 class="align-left">{{ article.title }} </h3>
+                {{ article.content }}
+            </div>
+            <div class="news-picture col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <img src="{{ article.picture.url }}">
+            </div>
+            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 news-info align-left">
+                <hr>
+                <p> Added by <a href='/user-profile/{{ article.added_by.id }}'>{{ article.added_by }}</a> on {{ article.date_added }}
+                    {% if request.user.is_superuser %}
+                        <a href='/warhammer/edit-news/{{ article.id }}'><strong>Edit</strong></a>
+                        <a href='/warhammer/delete-news/{{ article.id }}'><strong>Delete</strong></a>
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+        {% endfor %}
+{% endblock %}

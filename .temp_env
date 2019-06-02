@@ -1,0 +1,26 @@
+# Environment settings for local development.
+
+# Basic settings.py data
+
+ALLOWED_HOSTS=0.0.0.0,localhost
+
+DATABASE_URL=postgres://postgres@db:5432/postgres
+
+DJANGO_SECRET_KEY=your-secret-key-here
+
+DJANGO_SETTINGS_MODULE=config.settings.base # which settings file should be used?
+
+# Gmail user data for sending e-mails
+
+EMAIL_HOST_USER=your-email-login
+
+EMAIL_HOST_PASSWORD=your-email-password
+
+# Amazon S3 data
+
+AWS_ACCESS_KEY_ID=your-aws-access-key
+
+AWS_SECRET_ACCESS_KEY=your-aws-secret-access-key
+
+AWS_STORAGE_BUCKET_NAME=your-aws-storage-bucket-name
+

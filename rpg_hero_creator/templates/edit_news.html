@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Write news
+{% endblock %}
+{% block content %}
+<h3>Edit article:</h3>
+<form action="" method="post" enctype="multipart/form-data">
+    <div class="input-block">
+        {% csrf_token %}
+        <p>
+            <label for="id_title">News title:</label>
+            <input type="text" name="title" maxlength="32" required="" id="id_title" value="{{ news.title }}">
+        </p>
+        <p>
+            <label for="id_content">Content:</label>
+            <textarea name="content" cols="40" rows="10" required="" id="id_content">{{ news.content }}</textarea>
+        </p>
+        <p>
+            <label for="id_picture">Picture:</label>
+            <input type="file" name="picture" id="id_picture" value="{{ news.picture }}">
+        </p>
+        <input type="submit" class="button-centered" value="Add">
+    </div>
+</form>
+{{ message }}
+{% endblock %}

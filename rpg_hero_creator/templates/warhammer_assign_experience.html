@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Create user
+{% endblock %}
+{% block content %}
+<h3>{{ user.username.capitalize }} profile:</h3>
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-8 col-lg-offset-3 col-md-offset-3 col-sm-offset-2">
+    <form action="" method="post">
+    {% csrf_token %}
+            {{ form.as_p }}<br><br>
+        <input type="submit" value="Assign">
+    </form>
+    <p class="centered">{{ message }}</p>
+</div>
+{% endblock %}

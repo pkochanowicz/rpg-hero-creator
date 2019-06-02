@@ -1,0 +1,91 @@
+a {
+    color: #a2160d;
+}
+input{
+    width: 130px;
+    background-color: #d1d1d1;
+    cursor: pointer;
+}
+select {
+    cursor: pointer;
+}
+body {
+    background-color: black;
+    font-family: "Times New Roman", Times, serif;
+}
+#content{
+    border: 3px solid saddlebrown;
+    background-color: #d3b567;
+    padding-bottom: 1em;
+    margin-bottom: 4em;
+}
+#content h3 {
+    margin-bottom: 1em;
+}
+.news {
+    border: 3px solid saddlebrown;
+    margin-bottom: 2em;
+    padding: 5px;
+}
+.news-picture img{
+    width: 100%;
+    max-width: 100%;
+    height: 13em;
+    padding: 3px;
+    padding-top: 10px;
+}
+.logo{
+    background-image: url('/static/pictures/logo.gif');
+    background-size: 100em 23em;
+    background-attachment: fixed;
+    background-position: center top;
+    height: 23em;
+    width: 100em;
+}
+.character table {
+    width: 330px;
+}
+.character-personal-details table {
+    width: 330px;
+}
+.character-profile-table table {
+    width: 420px;
+}
+.character-profile-table input{
+    width: 30px;
+}
+.character-picture {
+    text-align: center;
+}
+.menu-navigation {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+#id_portrait {
+    width: 260px;
+	height: 340px;
+    border: 1px solid black;
+}
+.centered {
+    text-align: center;
+}
+.align-right {
+    float: right;
+}
+.align-left{
+    text-align: left;
+}
+.input-block input{
+    display: block;
+}
+.input-block p, ul{
+    text-align: left;
+}
+.button-centered{
+    margin: 0 auto;
+}
+.hero-table table, th, td{
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+}
