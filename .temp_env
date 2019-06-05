@@ -8,9 +8,9 @@ DATABASE_URL=postgres://postgres@db:5432/postgres
 
 DJANGO_SECRET_KEY=your-secret-key-here
 
-DJANGO_SETTINGS_MODULE=config.settings.base # which settings file should be used?
+DJANGO_SETTINGS_MODULE=config.settings.base # which settings file should be used? base is fine for local deployment, production for heroku
 
-# Gmail user data for sending e-mails
+# Gmail user data for automatic e-mails sending 
 
 EMAIL_HOST_USER=your-email-login
 
